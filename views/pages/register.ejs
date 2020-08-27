@@ -1,0 +1,119 @@
+
+<body class="vertical-layout vertical-menu 2-columns menu-expanded" data-open="click" data-menu="vertical-menu" data-col="2-columns">
+
+    <!--register page start here-->
+    
+    <section class="register">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2 col-xl-3"></div>
+          <div class="col-md-8 col-xl-6 col-12">
+            <div class="register-main">
+              <form method ="POST" action="/users/create">
+                <a href="index.html"><img src="/images/login-logo.png" class="img-full" alt="logo"></a>
+                <div class="form-main">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="img-div">
+                      <img src="/images/Profile_03.png" class="img-full" alt="">
+                      <div class="img-div-inner">
+                      <button name="file" class="change-cover" onclick="document.getElementById('upload').click()">
+                      <div class="ca"><i class="fa fa-camera"></i></div>
+                      </button>
+                      <input type="file" id="upload" name="file">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!--fields start here-->
+                
+                <div class="fields">
+                  <div class="row">
+                   
+                    <div class="col-md-12">  
+                    
+                      <i class="fa fa-user"></i>
+                      <input type="text" class="form-control" spellcheck="true" name="name" placeholder="Name">
+                    </div>
+                        <div class="col-md-12">  
+                    
+                      <i class="fa fa-envelope"></i>
+                      <input type="email" spellcheck="true" class="form-control" name="email" placeholder="Email Address">
+                    </div>
+                      <div class="col-md-12">  
+                       
+                      <i class="fa fa-key"></i>
+                      <input type="password" spellcheck="true" class="form-control" name="password" placeholder="Password">
+                    </div>
+                    <div class="col-md-12">  
+                     
+                      <i class="fa fa-key"></i>
+                      <input type="password" spellcheck="true" class="form-control" name="retypepassword" placeholder="Retype Password">
+                    </div>
+                        <div class="col-md-12">  
+                      <i class="fa fa-address-book"></i>
+                      <input type="text" spellcheck="true" class="form-control" name="address" placeholder="Address">
+                    </div>
+                      <div class="col-md-12">  
+                    
+                      <i class="fa fa-mars-double"></i>
+                      <input type="text" class="form-control" spellcheck="true" name="gender" placeholder="Gender">
+                    </div> 
+                      <div class="col-md-12">  
+                    
+                      <i class="fa fa-exclamation-circle"></i>
+                               <input id="datepicker" class="form-control mb-1" name="dob" placeholder="DOB"/> 
+                    </div>  
+                      <div class="col-md-12">  
+                    
+                      <i class="fa fa-phone"></i>
+                      <input type="number" class="form-control" spellcheck="true" name="phoneno" placeholder="Phone">
+                    </div>
+                  
+                    
+                  
+                    <div class="col-md-12">  
+                     
+                      <i class="fa fa-map-marker"></i>
+                      <input type="text" spellcheck="true" class="form-control" name="city" placeholder="City">
+                    </div>
+                    <div class="col-md-12">  
+                      
+                      <i class="fa fa-globe"></i>
+                      <input type="text" spellcheck="true" class="form-control" name="country" placeholder="Country">
+                    </div>
+                    
+                  </div>
+                  <button type="submit" class="form-control">Register</button>
+                </div>
+            
+              <div class="new-user">
+                <p>Already User</p>
+                <a href="/login" class="login form-control">Login</a> </div>
+              
+              <!--fields end here--> 
+              
+            </div>
+            </form>
+          </div>
+            
+        </div>
+        <div class="col-md-2 col-xl-3"></div>
+      </div>
+      </div>
+    </section>
+    
+    <!--register page end here--> 
+    
+    <!-- BEGIN VENDOR JS--> 
+    
+    <!-- END STACK JS--> 
+    <!-- BEGIN PAGE LEVEL JS--> 
+    <!-- END PAGE LEVEL JS-->
+        <script>
+            $('#datepicker').datepicker({
+                uiLibrary: 'bootstrap4'
+            });
+        </script>
+    </body>

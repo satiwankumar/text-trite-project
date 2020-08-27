@@ -1,0 +1,133 @@
+<body class="vertical-layout vertical-menu 2-columns menu-expanded fixed-navbar" data-open="click"
+  data-menu="vertical-menu" data-col="2-columns">
+  <!-- fixed-top-->
+  <nav class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-light navbar-border">
+    <div class="navbar-wrapper">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav flex-row">
+          <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs"
+              href="#"><i class="ft-menu font-large-1"></i></a></li>
+          <li class="nav-item"> <a class="navbar-brand" href="/dashboard"> <img class="brand-logo"
+                alt="stack admin logo" src="/images/logo.png"> </a> </li>
+          <li class="nav-item d-md-none"> <a class="nav-link open-navbar-container" data-toggle="collapse"
+              data-target="#navbar-mobile"><i class="fa fa-ellipsis-v"></i></a> </li>
+        </ul>
+      </div>
+      <div class="navbar-container content">
+        <div class="collapse navbar-collapse" id="navbar-mobile">
+          <ul class="nav navbar-nav mr-auto float-left">
+          </ul>
+          <ul class="nav navbar-nav float-right">
+            <li class="dropdown dropdown-user nav-item"> <a class="dropdown-toggle nav-link dropdown-user-link" href="#"
+                data-toggle="dropdown"> <span class="avatar avatar-online"> <img
+                    src="app-assets/images/portrait/small/avatar-s-1.png" alt="avatar"><i></i></span> <span
+                  class="user-name">John Doe</span> </a>
+              <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#"><i class="ft-user"></i>
+                  Edit Profile</a> <a class="dropdown-item" href="#"><i class="ft-mail"></i> My Inbox</a> <a
+                  class="dropdown-item" href="#"><i class="ft-check-square"></i> Task</a> <a class="dropdown-item"
+                  href="#"><i class="ft-message-square"></i> Chats</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#"><i class="ft-power"></i> Logout</a>
+              </div>
+            </li>
+            <li class="nav-item d-none d-md-block"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i
+                  class="ft-menu"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+  <div class="main-menu menu-fixed menu-light menu-accordion" data-scroll-to-active="true">
+    <div class="main-menu-content">
+      <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+        <li class="nav-item active"><a href="/users"><i class="fa fa-user"></i><span class="menu-title"
+              data-i18n="">users</span></a></li>
+        <li class="nav-item "><a href="/feedback"><i class="fa fa-comments"></i><span class="menu-title"
+              data-i18n="">Feedback</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="app-content content">
+    <div class="content-wrapper">
+      <div class="u-profile-main u-c-p-main">
+        <div class="content-body">
+          <!-- Basic form layout section start -->
+          <section id="configuration" class="u-c-p u-profile add-user">
+            <div class="row">
+              <div class="col-12">
+                <div class="card pro-main">
+                  <div class="row">
+                    <div class="col-12">
+                      <h1>Users List </h1>
+                    </div>
+                  </div>
+                  <form method="POST" action="/users/feedback">
+                    <div class="row">
+                      <div class="col-xl-6  col-md-10 col-12 offset-xl-3 offset-lg-2 offset-md-1">
+                        <div class="profile-frm">
+
+                          <!--col end-->
+                          <div class="row">
+                            <div class="col-12">
+                              <div class="pro-inner-row">
+                                <label><i class="fa fa-envelope"></i> Subject</label>
+                                <input type="text" class="form-control" name="subject" placeholder="John Doe">
+                              </div>
+
+                              <div class="pro-inner-row">
+                                <label><i class="fa fa-envelope"></i> Description</label>
+                                <input type="text" class="form-control" name="description"
+                                  placeholder="michealalex@gmail.com">
+                              </div>
+
+                            
+                              <!--pro inner row end-->
+
+                              <!--pro inner row end-->
+
+                            </div>
+                            <!--pro inner row end-->
+
+                            <br>
+                          </div>
+                        </div>
+                        <!--row end-->
+
+                      </div>
+                      <!--profile form end-->
+
+                    </div>
+
+
+                    <div class="row">
+
+                      <div class="col-12 text-center">
+                        <button type="submit">Create</button>
+
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+  <!-- BEGIN VENDOR JS-->
+
+  <!-- END STACK JS-->
+  <!-- BEGIN PAGE LEVEL JS-->
+  <!-- END PAGE LEVEL JS-->
+  <script>
+    $('#datepicker').datepicker({
+      uiLibrary: 'bootstrap4'
+    });
+  </script>
+</body>
+
+</html>
