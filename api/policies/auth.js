@@ -2,6 +2,8 @@ const jwt = require('jsonwebtoken')
 
 
 
+
+
 module.exports = function(req,res,next){
 
     //Get token from the header
@@ -9,17 +11,17 @@ module.exports = function(req,res,next){
 
     //check if not token
 
-    if(!token){
-        return res.status(401).json({msg : 'No token authorization denied'})
+    if(!req.session.isLoggedIn){
+        return res.redirect('/login')
     }
 
     //verify token
     try {
-        const decoded = jwt.verify(token,sails.config.jwtSecret)
-        req.user = decoded.user;
+        // const decoded = jwt.verify(token,sails.config.jwtSecret)
+        // req.user = decoded.user;
         next();
     } catch (error) {
-        res.status(401).json({"msg":"token is invalid"})
+        res.status(401).json({"msg":"Invalid authoriaion"})
     }
 
 }

@@ -14,6 +14,7 @@ module.exports = {
             if(err){
                 res.send(500, {error: 'Database Error'});
             }
+            console.log(ListFeedback)
             res.view('ListFeedback',{ListFeedback:ListFeedback})
         });
         console.log(ListFeedback)
@@ -27,9 +28,9 @@ module.exports = {
             sails.log.debug(req.body)
             // let userId = req.session.userId
             // console.log(user.length)
-           
-               
-                var feedback = await Feedback.create({ subject:req.body.subject,description:req.body.description,user:req.body.user }).fetch()
+            
+
+                var feedback = await Feedback.create({ subject:req.body.subject,description:req.body.description,user:req.session.userId }).fetch()
                 console.log('new feedback is added')
                 console.log({ feedback })
               
@@ -46,8 +47,33 @@ module.exports = {
         }
 
     },
+    edit: function(req, res){
+        Feedback.findOne({id:req.params.id}).populate('user').exec(function(err, feedback){
+            if(err){
+                res.send(500, {error: 'Database Error'});
+            }
 
+            res.view('feedbackdetail', {feedback:feedback});
+        });
+    },
+    delete: async function(req, res){
+
+        let feedback = await Feedback.find({ _id:req.params.id })
+        if(feedback.length==0){
+            console.log('user id not found')
+            res.send('user id not found')
+        }
+        else{
+        Feedback.destroy({id:req.params.id}).exec(function(err){
+            if(err){
+                res.send(500, {error: 'Database Error'});
+            }
+        console.log('Feedback deleted successfully')
+        return res.redirect('/user/feedback')
+        });
+    }
    
+}
    
     
 

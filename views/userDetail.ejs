@@ -1,0 +1,135 @@
+<body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click"
+    data-menu="vertical-menu" data-col="2-columns">
+
+    <%- partial('./partials/Nav.ejs') %>
+
+
+
+    <div class="app-content content">
+        <div class="content-wrapper">
+            <div class="u-profile-main u-c-p-main">
+                <div class="content-body">
+
+                    <section id="configuration" class="u-c-p u-profile">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card pro-main">
+                                    <div class="row d-flex">
+                                        <div class="col-lg-3 col-sm-6 col-12 order-1">
+                                            <h1>Users List </h1>
+                                        </div>
+                                        <div class="col-lg-6 col-12 order-lg-2 order-3">
+                                            <div class="profile-frm">
+                                                <div class="row">
+                                                    <div class=" col-12">
+                                                        <div class="attached"> <img src="/images/Profile_03.png"
+                                                                alt="" />
+                                                            <button name="file" class="change-cover"
+                                                                onclick="document.getElementById('upload').click()"><i
+                                                                    class="fa fa-camera"></i></button>
+                                                            <input type="file" id="upload" name="file" />
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class=" col-12">
+
+                                                        <div class="pro-inner-row">
+                                                            <label><i class="fa fa-envelope"></i> Email Address</label>
+                                                            <input type="email" class="form-control"
+                                                               <%= user.email %> disabled
+                                                                placeholder="michealalex@gmail.com" />
+                                                        </div>
+
+
+                                                        <div class="pro-inner-row">
+                                                            <label><i class="fa fa-bell"></i> Phone Number</label>
+                                                            <input type="text" class="form-control" <%= user.phoneno %>
+                                                                disabled placeholder="+1-202-555-0168" />
+                                                        </div>
+
+
+                                                        <div class="pro-inner-row">
+                                                            <label><i class="fa fa-calendar "></i> DOB </label>
+                                                            <input id="datepicker" class="form-control" <%= user.dob %>
+                                                                disabled placeholder="22-2-2019" />
+                                                        </div>
+
+
+                                                        <div class="pro-inner-row">
+                                                            <label><i class="fa fa-map-marker"></i> Address</label>
+                                                            <input type="text" class="form-control" <%= user.address %>
+                                                                disabled
+                                                                placeholder="14 Street Rosville, California USA" />
+                                                        </div>
+
+
+                                                        <div class="pro-inner-row">
+                                                            <label><i class="fa fa-map-marker"></i> City</label>
+                                                            <input type="text" class="form-control" <%= user.city %>
+                                                                disabled placeholder="new york" />
+                                                        </div>
+
+                                                        <div class="pro-inner-row">
+                                                            <label><i class="fa fa-map-marker"></i> Country</label>
+                                                            <input type="text" class="form-control" <%= user.country %>
+                                                                disabled placeholder="United States" />
+                                                        </div>
+                                                    </div>
+
+                                                    <br>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="col-lg-3 col-sm-6 col-12 order-lg-3 order-2">
+                                            <div class="box">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <i class="fa fa-bell"></i>
+                                                        <h2>Total Alerts</h2>
+                                                        <h3>32</h3>
+                                                    </div>
+                                                    <div class="col-12 text-center">
+
+                                                        <% if (user.status===true){ %>
+
+                                                        <p class="active"> Current Status: active</p>
+
+                                                        <% } %>
+                                                        <% if (user.status===false){%>
+
+                                                        <p class="inactive"> Current Status:inactive</p>
+
+                                                        <% } %>
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+
+                                        <div class="col-12 text-center">
+                                            <a href="/users"> go back</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

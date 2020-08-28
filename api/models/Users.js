@@ -41,10 +41,15 @@ module.exports = {
     country: {
       type: 'string'
     },
+    status:{
+      type:'boolean',
+      defaultsTo:false
+
+    },
   
     isAdmin: {
       type: 'boolean',
-      defaultsTo:true
+      defaultsTo:false
 
     },
     createdAt: { type: 'string', columnType: 'datetime', autoCreatedAt: true, },

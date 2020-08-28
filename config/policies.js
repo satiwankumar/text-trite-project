@@ -9,6 +9,7 @@
  */
 module.exports.policies = {
    // Everything resctricted here
+   '*': ['auth'],
   'UsersController': { // Name of your controller
   'create': true,// We dont need authorization here, allowing public access
 

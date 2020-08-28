@@ -16,21 +16,22 @@ module.exports = {
 
       let user = await Users.findOne({ email: req.body.email })
       console.log(user)
-      if (user.length === 0) {
+      if (typeof(user) ==="undefined" ) {
         return res.status(404).send('Invalid login Credentials')
       }
-
+else{
       const isMatch = await bcrypt.compareSync(req.body.password, user.password)
       console.log(isMatch)
       if (!isMatch) {
         return res.status(400).send('Invalid Credentials');
       }
-        req.session.userId=user.id
-        req.session.username =user.name
-        req.session.isAdmin = user.isAdmin
+      req.session.userId = user.id
+      req.session.username = user.name
+      req.session.isAdmin = user.isAdmin
+      req.session.isLoggedIn = true
 
       // ,()=>{
-        console.log(req.session)
+      console.log(req.session)
 
       const payload = {
         user: { id: user.id },
@@ -49,6 +50,7 @@ module.exports = {
 
 
     }
+  }
 
 
 
@@ -57,6 +59,15 @@ module.exports = {
       res.status(500).send('server error');
     }
   },
+  logout: function (req, res) {
+    req.session.destroy(function (err) {
+      setTimeout(() => {
+        return res.redirect('/login');
+      }, 500);
+    });
+
+
+  }
 
 
 

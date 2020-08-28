@@ -1,6 +1,8 @@
 
 const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const FeedbackController = require('./FeedbackController');
+
 
 module.exports = {
 
@@ -55,7 +57,15 @@ module.exports = {
         }
 
     },
+    edit: function(req, res){
+        Users.findOne({id:req.params.id}).exec(function(err, user){
+            if(err){
+                res.send(500, {error: 'Database Error'});
+            }
 
+            res.view('userDetail', {user:user});
+        });
+    },
     delete: async function(req, res){
 
         let user = await Users.find({ _id:req.params.id })
@@ -68,13 +78,26 @@ module.exports = {
             if(err){
                 res.send(500, {error: 'Database Error'});
             }
-
-        return res.send('user deleted successfully')
+        console.log('user deleted successfully')
+        return res.redirect('/users')
         });
     }
    
     },
-    
+    dashboard:async function(req,res){
+            let userscount = 0;
+            let feedbackCount = 0
+
+          userscount  = await Users.find({})
+          feedbackCount = await Feedback.find({}) 
+         // console.log(items.length)
+                
+                
+                    return res.view('dashboard',{userscount:userscount.length,feedbackCount:feedbackCount.length})
+
+      
+     
+    }
 
 
 

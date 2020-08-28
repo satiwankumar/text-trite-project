@@ -1,0 +1,77 @@
+<body class="vertical-layout vertical-menu 2-columns menu-expanded fixed-navbar" data-open="click"
+  data-menu="vertical-menu" data-col="2-columns">
+  <!-- fixed-top-->
+  <%- partial('./partials/Nav.ejs') %>
+
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+  <div class="app-content content">
+    <div class="content-wrapper">
+      <div class="">
+        <div class="content-body">
+          <!-- Basic form layout section start -->
+          <section id="configuration" class="u-c-p u-profile a-feedback">
+            <div class="row">
+              <div class="col-7">
+                <div class="card pro-main">
+
+                  <div class="profile-image">
+                    <img src="/images/profile.png" class="img-fluid" alt="">
+
+                  </div>
+
+                  <div class="row">
+                    <div class=" col-12">
+                      <div class="profile-frm">
+                        <div class="row">
+
+                          <!--col end-->
+
+                          <div class=" col-12">
+                            <h1>Feedback detail</h1>
+                            <label><i class="fa fa-envelope"></i> Email Address</label>
+                            <p><%= feedback.user.email%></p>
+                            <label><i class="fa fa-file"></i><%= feedback.subject%> </label>
+                            <p>Neque porro quisquam est</p>
+                            <label><i class="fa fa-calendar"></i>date</label>
+                            <p><%= feedback.createdAt %></p>
+                            <label><i class="fa fa-comments"></i> Description</label>
+                            <p><%= feedback.description%></p>
+                            <div class="row d-flex justify-content-between repl">
+                              <div class="col-sm-6 col-12">
+                                <a href="reply-feedback.html"><i class="fa fa-share"></i>reply</a>
+                              </div>
+                              <div class="col-sm-6 col-12 text-right">
+                                <form class="d-inline" action="/user/feedback/delete/<%= feedback.id %>" method="post">
+                                  <input type="submit" class="btn-primary"  value="Delete" >
+                                  
+                                </input>
+                              </form>
+                              
+                              </div>
+                            </div>
+                            <a href="/user/feedback" class="save">Back</a>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+
+
+  <!-- BEGIN PAGE LEVEL JS-->
+  <!-- END PAGE LEVEL JS-->
+</body>
+
+</html>

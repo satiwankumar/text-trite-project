@@ -20,29 +20,45 @@ module.exports.routes = {
   ***************************************************************************/
 
 
-  '/': { view: 'pages/login' },
-  '/Register': { view: 'pages/register' },
-  '/adduser': { view: 'pages/AddUser' },
-  '/feedback': { view: 'ListFeedback' },
-  '/dashboard':{view: 'dashboard'},
 
-  '/feedbackdetail': { view: 'pages/feedbackdetail' },
+  // '/': { view: 'pages/login' },
+
+  '/login': [
+    { policy: 'forceDashboard' },
+    { view: 'pages/login' }
+],'/': [
+  { policy: 'forceDashboard' },
+  { view: 'pages/login' }
+],
+  '/Register': { view: 'pages/register' },
+  '/adduser': [ { view: 'AddUser' } ],
+  '/feedback': [ { view: 'ListFeedback'}],
+  '/feedbackdetail': [{ view: 'pages/feedbackdetail' }],
   
   
 //UserController Routes  
-
 'GET /users' :'UsersController.list',
+'GET /users/edit/:id' :'UsersController.edit',
 'POST /users/create' :'UsersController.create',
-'DELETE /users/:id' :'UsersController.delete',
+'POST /users/delete/:id' :'UsersController.delete',
+'GET /dashboard':  'UsersController.dashboard' ,
 
   
+
+//auth routes
 'POST /auth/login'  :'AuthController.login',
+'GET /auth/logout'  :'AuthController.logout',
 
 
+
+//Feedback routes
 'GET /user/feedback'  :'FeedbackController.list',
+'GET /user/feedback/edit/:id' :'FeedbackController.edit',
+'POST /user/feedback'  :'FeedbackController.create',
+'POST /user/feedback/delete/:id' :'FeedbackController.delete',
 
 
-'POST /user/feedback'  :'FeedbackController.create'
+
 
   
 
